@@ -2,31 +2,35 @@ import React from 'react';
 import Button from '../Button';
 import style from './Formulario.module.scss';
 
-export const Form = () => {
+const Form: React.FC = () => {
     return (
         <form className={style.novaTarefa}>
             <div className={style.inputContainer}>
                 <label htmlFor="tarefa">Adicione um novo estudo</label>
+
                 <input
-                    type="text"
-                    name="tarefa"
                     id="tarefa"
+                    name="tarefa"
                     placeholder="O que você quer estudar?"
                     required
+                    type="text"
                 />
             </div>
+
             <div className={style.inputContainer}>
                 <label htmlFor="tempo">Tempo</label>
+
                 <input
-                    type="time"
-                    step="1"
-                    name="tempo"
                     id="tempo"
-                    min="00:00:00"
                     max="01:30:00"
+                    min="00:00:00"
+                    name="tempo"
+                    step="1"
+                    type="time"
                 />
             </div>
-            <Button></Button>
+
+            <Button>Adicionar</Button>
         </form>
     );
 };

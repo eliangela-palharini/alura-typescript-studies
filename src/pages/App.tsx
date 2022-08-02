@@ -3,9 +3,9 @@ import Form from '../components/Form';
 import List from '../components/List';
 import './style.scss';
 
-function App() {
+function App () {
     return (
-        <div className="AppStyle">
+        <div className='AppStyle'>
             <Form />
             <List />
         </div>

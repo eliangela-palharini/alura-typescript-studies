@@ -1,8 +1,15 @@
 import React from 'react';
 import style from './Botao.module.scss';
 
-export const Button = () => {
-    return <button className={style.botao}>Botão</button>;
+interface IProps {
+    children: string;
+    onClick?: () => void;
+}
+
+const Button: React.FC<IProps> = ({ children, onClick }) => {
+    return (
+        <button className={style.botao} onClick={onClick}>{children}</button>
+    );
 };
 
 export default Button;

@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './Lista.module.scss';
 
-export const List = () => {
+const List: React.FC = () => {
     const tasks = [
         {
             tarefa: 'React',
