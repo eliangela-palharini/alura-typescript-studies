@@ -5,7 +5,7 @@ import './style.scss';
 
 function App () {
     return (
-        <div className='AppStyle'>
+        <div className="AppStyle">
             <Form />
             <List />
         </div>
