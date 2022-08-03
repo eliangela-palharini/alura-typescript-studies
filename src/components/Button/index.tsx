@@ -4,11 +4,14 @@ import style from './Botao.module.scss';
 interface IProps {
     children: string;
     onClick?: () => void;
+    type?: 'button' | 'submit' | 'reset';
 }
 
-const Button: React.FC<IProps> = ({ children, onClick }) => {
+const Button: React.FC<IProps> = ({ children, onClick, type = 'button' }) => {
     return (
-        <button className={style.botao} onClick={onClick}>{children}</button>
+        <button type={type} className={style.botao} onClick={onClick}>
+            {children}
+        </button>
     );
 };
 
