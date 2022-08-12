@@ -3,17 +3,22 @@ import ITarefa from '../../types/ITarefa';
 import Item from './Item';
 import style from './Lista.module.scss';
 
-interface IProps {
+interface Props {
     tarefas: ITarefa[];
+    selecionaTarefa: (task: ITarefa) => void;
 }
 
-const List: React.FC<IProps> = ({ tarefas }) => {
+const List: React.FC<Props> = ({ tarefas, selecionaTarefa }) => {
     return (
         <aside className={style.listaTarefas}>
             <h2>Estudos do dia</h2>
             <ul>
-                {tarefas.map((task, index) => (
-                    <Item {...task} key={index}></Item>
+                {tarefas.map((tarefa) => (
+                    <Item
+                        {...tarefa}
+                        key={tarefa.id}
+                        selecionaTarefa={selecionaTarefa}
+                    ></Item>
                 ))}
             </ul>
         </aside>

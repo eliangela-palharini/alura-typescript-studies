@@ -6,12 +6,17 @@ import ITarefa from '../types/ITarefa';
 import './style.scss';
 
 function App() {
-    const [tasks, setTasks] = useState<ITarefa[]>([]);
+    const [tarefas, setTarefas] = useState<ITarefa[]>([]);
+    const [, setTarefaSelecionada] = useState<ITarefa>();
+
+    const selecionaTarefa = (tarefa: ITarefa) => {
+        setTarefaSelecionada(tarefa);
+    };
 
     return (
         <div className="AppStyle">
-            <Form setTarefas={setTasks} />
-            <List tarefas={tasks} />
+            <Form setTarefas={setTarefas} />
+            <List tarefas={tarefas} selecionaTarefa={selecionaTarefa} />
             <Cronometro />
         </div>
     );

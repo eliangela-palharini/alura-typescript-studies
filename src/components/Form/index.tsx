@@ -2,20 +2,26 @@ import React, { useState } from 'react';
 import ITarefa from '../../types/ITarefa';
 import Button from '../Button';
 import style from './Formulario.module.scss';
+import { v4 as uuidv4 } from 'uuid';
 
 interface IProps {
     setTarefas: React.Dispatch<React.SetStateAction<ITarefa[]>>;
 }
 
 const Form: React.FC<IProps> = ({ setTarefas }) => {
-    const [state, setState] = useState({
+    const initialState = {
         tarefa: '',
         tempo: '00:00',
-    });
+    };
+    const [state, setState] = useState(initialState);
 
     const handleSalvarTarefa = (evento: React.FormEvent) => {
         evento.preventDefault();
-        setTarefas((tarefasAntigas) => [...tarefasAntigas, state]);
+        setTarefas((tarefasAntigas) => [
+            ...tarefasAntigas,
+            { ...state, selecionado: false, completado: false, id: uuidv4() },
+        ]);
+        setState(initialState);
     };
 
     return (
